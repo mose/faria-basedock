@@ -28,6 +28,7 @@ ADD files/supervisord-sshd.conf /etc/supervisor/conf.d/sshd.conf
 ADD files/supervisord-crond.conf /etc/supervisor/conf.d/crond.conf
 ADD files/supervisord-rsyslogd.conf /etc/supervisor/conf.d/rsyslogd.conf
 ADD files/supervisord-memcached.conf /etc/supervisor/conf.d/memcached.conf
+ADD files/rsyslog.conf /etc/rsyslog.d/50-default.conf
 ADD files/cron-rsyslog.conf /etc/rsyslog.d/60-cron.conf
 ADD files/crontab /etc/crontab
 
