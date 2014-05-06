@@ -12,8 +12,8 @@ RUN sed -i 's/main$/main universe/' /etc/apt/sources.list
 RUN locale-gen en_US en_US.UTF-8
 
 RUN apt-get -qq update
-RUN apt-get -y -qq upgrade 
-RUN apt-get install -y -qq curl lsb-release supervisor openssh-server cron rsyslog postfix memcached wget
+RUN apt-get -y -qq upgrade
+RUN apt-get install -y -qq curl lsb-release supervisor openssh-server cron rsyslog postfix wget
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -27,7 +27,6 @@ ADD files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD files/supervisord-sshd.conf /etc/supervisor/conf.d/sshd.conf
 ADD files/supervisord-crond.conf /etc/supervisor/conf.d/crond.conf
 ADD files/supervisord-rsyslogd.conf /etc/supervisor/conf.d/rsyslogd.conf
-ADD files/supervisord-memcached.conf /etc/supervisor/conf.d/memcached.conf
 ADD files/rsyslog.conf /etc/rsyslog.d/50-default.conf
 ADD files/cron-rsyslog.conf /etc/rsyslog.d/60-cron.conf
 ADD files/crontab /etc/crontab
